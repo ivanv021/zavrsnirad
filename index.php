@@ -25,11 +25,19 @@
   <?php include 'header.php'; ?>
 </header>
 
+
 <main role="main" class="container">
-
-   <?php include 'posts.php' ?>
-
+  
+<div class="row">
+    <?php include 'posts.php' ?>
+    <?php include 'sidebar.php' ?>
+</div><!-- /.row -->
+   
+   
+  
 </main><!-- /.container -->
+
+
 
 <footer class="blog-footer">
 <?php include 'footer.php'; ?>

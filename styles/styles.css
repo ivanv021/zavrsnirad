@@ -36,3 +36,7 @@ h6,
     font-weight: 400;
     color: black;
 }
+.hide {
+    display: none;
+}
+

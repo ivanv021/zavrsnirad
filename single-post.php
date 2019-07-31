@@ -1,4 +1,4 @@
-<?php include('db.php') ?>
+<?php include('dbhome.php') ?>
 
 <?php
 if (isset($_GET['id'])) {
@@ -32,39 +32,72 @@ if (isset($_GET['id'])) {
     <link href="styles/styles.css" rel="stylesheet">
 </head>
 
+
+<?php include 'header.php'; ?>
 <body>
 
-<header>
-  <?php include 'header.php'; ?>
-</header>
+
+  
+
 
 <main role="main" class="container">
 
 <div class="row">
 
-        <div class="col-sm-8 blog-main">
 
+            <div class="col-sm-8 blog-main">
+            
             <div class="blog-post">
-              <a href = 'single-post.php?id=<?php echo $value['Id']; ?>'  <h2 class="blog-post-title"> <?php echo $ad['Title'] ?></h2> </a>
-                <p class="blog-post-meta"><?php echo $ad['Created_at'] ?>  <a href="#"><?php echo $ad['Author'] ?></a></p>
+            
+              <a href = 'single-post.php?id=<?php echo $ad['Id']; ?>'>  <h2 class="blog-post-title"> <?php echo $ad['Title'] ?></h2> </a>
+                <p class="blog-post-meta"><?php echo $ad['Created_at'] ?> <b> <?php echo $ad['Author'] ?></b></p>
 
                 <p><?php echo $ad['Body'] ?> </p>
-            </div><!-- /.blog-post -->
+            
+                
+            <h5>Make comment:</h5>
+            
+            <?php
+                $error = '';
+                if ($_SERVER["REQUEST_METHOD"] === 'GET' && !empty($_GET['error'])) {
+                    $error = 'You must complete all the fields!';
+                }
+            ?>
+            <form class="form" method="POST" action="create-comment.php" >
+                <?php if (!empty($error)) {?>
+                    <p class="alert alert-danger">
+                        <?php echo $error; ?>
+                </p>
+                <?php } ?>
+                <br>               
+                
+                <input name="author" type="text" placeholder="Author"  /><br><br>
+                <textarea name="comment" rows="5" cols="50" placeholder="Text"></textarea>
+                <input type="hidden" value="<?php echo $_GET['id']; ?>" name="id"/><br><br>
+                <input class="btn btn-default" type="submit" value="Submit">
+            </form>
+            
+            <br>
+            <br>
 
-            <?php include('comments.php') ?>
 
+            
+            <h5>Comments:</h5>
+            <?php include 'comments.php' ?>
+           
             
 
            
-
-           
+            
+            </div><!-- /.blog-post -->
+            
 
         </div><!-- /.blog-main -->
-
-<aside class="col-sm-3 ml-sm-auto blog-sidebar">
-        <?php include 'sidebar.php'; ?>
-        </aside><!-- /.blog-sidebar -->
-
+        <?php include 'sidebar.php' ?>
+        
+        
+        
+        </div><!-- /.row -->
 </main><!-- /.container -->
 
 <footer class="blog-footer">
