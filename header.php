@@ -9,9 +9,8 @@
         </div>
     </div>
                 <a class="nav-link" href="index.php">Home</a>
-                <a class="nav-link" href="#">About</a>
-                <a class="nav-link" href="#">Contact</a>
-                <a class="nav-link" href="#">Sign in</a>
+                <a class="nav-link" href="create.php">Create</a>
+               
                 
             </nav>
         </div>
