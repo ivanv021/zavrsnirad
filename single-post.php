@@ -53,7 +53,26 @@ if (isset($_GET['id'])) {
                 <p class="blog-post-meta"><?php echo $ad['Created_at'] ?> <b> <?php echo $ad['Author'] ?></b></p>
 
                 <p><?php echo $ad['Body'] ?> </p>
-            
+
+                <form method="GET" action="delete-post.php" name="deletePost" id="deletePostForm">
+                <input class="btn btn-default" type="submit" value="Delete this post" id="deletePostBtn">
+                <input type="hidden" value="<?php echo $ad['Id']; ?>" name="id" />
+                </form>
+                <script>
+                    var deletePostBtn = document.getElementById('deletePostBtn');
+                    var deletePostForm = document.getElementById('deletePostForm');
+
+                    deletePostBtn.addEventListener("click", function(event){
+                    event.preventDefault();
+                    if(window.confirm("Do you really want to delete this post?")) {
+                    deletePostForm.submit();
+                    }
+                    });
+                 
+
+
+                   
+                </script><br>
                 
             <h5>Make comment:</h5>
             
