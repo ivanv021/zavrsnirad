@@ -1,5 +1,5 @@
 <?php
-    include "dbhome.php";
+    include "db.php";
 
     $id = $_POST['id'];
     if(!empty($_POST['author']) && !empty($_POST['comment'])) {

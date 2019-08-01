@@ -1,4 +1,4 @@
-<?php include('dbhome.php') ?>
+<?php include('db.php') ?>
 <?php
 
     $sql = "select * from comments where Post_id = :id";
@@ -59,7 +59,7 @@ Text:
 
 <form method="GET" action="delete-comment.php" >
                 <input class="btn btn-default" type="submit" value="Delete">
-                <input type="hidden" value="<?php echo $value['id']; ?>" name="id"/>
+                <input type="hidden" value="<?php echo $value['Id']; ?>" name="id"/>
                 <input type="hidden" value="<?php echo $value['Post_id']; ?>" name="post_id"/>
             </form>
 

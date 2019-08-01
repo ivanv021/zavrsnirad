@@ -1,6 +1,6 @@
 
 
-<?php include('dbhome.php') ?>
+<?php include('db.php') ?>
 
 <?php
 $sql = "select * from posts ORDER BY Created_at DESC LIMIT 5;";
